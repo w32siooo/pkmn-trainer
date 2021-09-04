@@ -8,6 +8,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { PokelistComponent } from './pokelist/pokelist.component';
 import { PokelistChildComponent } from './pokelist-child/pokelist-child.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +17,16 @@ import { PokelistChildComponent } from './pokelist-child/pokelist-child.componen
     HeaderComponent,
     PokelistComponent,
     PokelistChildComponent,
+    LoginPageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

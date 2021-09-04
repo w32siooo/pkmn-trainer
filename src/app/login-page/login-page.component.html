@@ -1,0 +1,13 @@
+<app-header></app-header>
+<div class="container"></div>
+<p>Login here or something</p>
+<form [formGroup]="checkoutForm" (ngSubmit)="login()">
+  <div>
+    <label for="name"> Name </label>
+    <input id="name" type="text" formControlName="name" />
+  </div>
+  <button class="button" type="submit" routerLink="/pokelist">Purchase</button>
+</form>
+<div>
+  <p>Loading pokemons...</p>
+</div>

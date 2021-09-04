@@ -1,2 +1,5 @@
-{{ pokeName }} {{ pokemonNumber[index] }}
-<button (click)="clickButton()">click me</button>
+<button (click)="clickButton()">{{ pokeName }} {{ pokemonNumber[index] }}
+
+<img [src]="pokeImg[index].url">
+<p *ngIf="caught">Gotcha! {{pokeName}} was caught!</p>
+</button>
