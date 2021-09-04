@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PaginationControlsComponent } from 'ngx-pagination';
 import { DataService } from '../service/data.service';
 
 @Component({
@@ -8,29 +7,22 @@ import { DataService } from '../service/data.service';
   styleUrls: ['./pokelist.component.css'],
 })
 export class PokelistComponent implements OnInit {
-  pokemons: any[] = [];
-  page = 0;
-  totalPokemons: number = 0;
+  pokemons: string[] = [];
   pokemonNumber: number[] = [];
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) {
+  }
 
   ngOnInit(): void {
-    this.getPokemons();
-  }
+    this.dataService.getPokemons()
+    this.pokemonNumber = this.dataService.pokemonNumberGetter()
+    this.pokemons = this.dataService.pokemonArrayGetter()
+    console.log(this.pokemons)
+    }
 
   parrentEventHandlerFunction(event: number) {
     console.log(event);
   }
 
-  getPokemons() {
-    this.dataService.getPokemon(5, this.page + 0).subscribe((response: any) => {
-      this.totalPokemons = response.count;
-      this.pokemons = response.results.map((e: any) => {
-        this.pokemonNumber.push(e.url[34]);
-        return e.name;
-      });
-      console.log(this.pokemonNumber);
-    });
-  }
+
 }

@@ -5,12 +5,34 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class DataService {
+  pokemons: string[] = [];
+  page = 0;
+  totalPokemons: number = 0;
+  pokemonNumber: number[] = [];
+  limit=5;
+  offset=0;
   constructor(private http: HttpClient) {}
 
-  getPokemon(limit: number, offset: number) {
+
+
+  getPokemons() {
     return this.http.get(
-      `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
-    );
+      `https://pokeapi.co/api/v2/pokemon?limit=${this.limit}&offset=${this.offset}`
+    ).subscribe((response: any) => {
+      this.totalPokemons = response.count;
+      response.results.map((e: any) => {
+        this.pokemonNumber.push(e.url[34]);
+        this.pokemons.push(e.name)
+      });
+    });
+  }
+
+  public pokemonArrayGetter():string[] {
+    return this.pokemons;
+  }
+
+  public pokemonNumberGetter():number[] {
+    return this.pokemonNumber;
   }
 
   getMoreData(name: string) {
