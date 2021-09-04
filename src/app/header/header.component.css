@@ -1,9 +1,6 @@
-header {
-  background-color: seagreen;
-  text-align: center;
-}
-header h1 {
+centerclass {
   color: white;
   letter-spacing: 3px;
   padding: 5;
+  text-align: center;
 }

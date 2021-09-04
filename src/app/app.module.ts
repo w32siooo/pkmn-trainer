@@ -10,6 +10,7 @@ import { PokelistComponent } from './pokelist/pokelist.component';
 import { PokelistChildComponent } from './pokelist-child/pokelist-child.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
     PokelistComponent,
     PokelistChildComponent,
     LoginPageComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,
