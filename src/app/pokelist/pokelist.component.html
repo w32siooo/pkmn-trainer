@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="column">
+      <app-pokelist-child
+        *ngFor="let pokemon of pokemons; let i = index"
+        [index]="i"
+        [pokemon]="pokemon"
+        [pokemonNumber]="pokemonNumber"
+        (buttonClicked)="parrentEventHandlerFunction($event)"
+      >
+      </app-pokelist-child>
+
+      <p><b> Type: </b>h</p>
+    </div>
+  </div>
+</div>
