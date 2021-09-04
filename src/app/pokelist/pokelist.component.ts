@@ -14,19 +14,27 @@ export class PokelistComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.dataService.getPokemons();
     this.pokemonNumber = this.dataService.pokemonNumberGetter();
     this.pokemons = this.dataService.pokemonArrayGetter();
   }
 
   parrentEventHandlerFunction(event: number) {
     this.collected.push(event);
-    console.log(this.collected)
-    this.storeLocally()
+  }
+  ngOnDestroy() {
+    this.storeLocally();
   }
 
   storeLocally() {
-    localStorage.setItem('collected', JSON.stringify(this.collected));
-    //let data : string = JSON.parse(<string>localStorage.getItem('collected'));
+    let data: number[] = JSON.parse(<string>localStorage.getItem('collected'));
+    //if data is not null or undefined we will store previous data in local storage.
+    if (data) {
+      localStorage.setItem(
+        'collected',
+        JSON.stringify([...data, ...this.collected])
+      );
+    } else {
+      localStorage.setItem('collected', JSON.stringify([...this.collected]));
+    }
   }
 }
