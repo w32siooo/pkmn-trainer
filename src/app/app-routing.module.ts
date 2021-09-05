@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { PokelistComponent } from './pokelist/pokelist.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { YourGuardGuard } from './your-guard.guard';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
   {
     path: 'pokelist',
     component: PokelistComponent,
+    canActivate: [YourGuardGuard],
   },
 ];
 

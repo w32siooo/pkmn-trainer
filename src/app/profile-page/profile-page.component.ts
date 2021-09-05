@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { pokeImgUrls, pokeImgType } from '../constants/constants';
 
 @Component({
   selector: 'app-profile-page',
@@ -6,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-page.component.css'],
 })
 export class ProfilePageComponent implements OnInit {
+  public pokeImg: pokeImgType = pokeImgUrls;
   collectedPokemon: number[] = [];
   constructor() {}
 
   ngOnInit(): void {
-    let data: number []= JSON.parse(<string>localStorage.getItem('collected'));
-    this.collectedPokemon= data;
+    let data: number[] = JSON.parse(<string>localStorage.getItem('collected'));
+    this.collectedPokemon = data;
   }
 }
