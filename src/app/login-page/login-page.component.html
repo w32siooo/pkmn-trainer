@@ -1,11 +1,11 @@
 <div class="container"></div>
-<p>Login here or something</p>
+<p>What's your name, trainer?</p>
 <form [formGroup]="checkoutForm" (ngSubmit)="login()">
   <div>
     <label for="name"> Name </label>
-    <input id="name" type="text" formControlName="name" />
+    <input id="name" type="text" formControlName="name" placeholder="red" />
   </div>
-  <button class="button" type="submit" routerLink="/pokelist">Purchase</button>
+  <button class="button" type="submit" routerLink="/pokelist">Login</button>
 </form>
 <div>
   <p>Loading pokemons...</p>

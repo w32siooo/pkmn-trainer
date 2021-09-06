@@ -15,7 +15,7 @@ export class DataService {
 
   getPokemons() {
     return this.http
-      .get<any[]>(`https://pokeapi.co/api/v2/pokemon?limit=7&offset=0`)
+      .get<any[]>(`https://pokeapi.co/api/v2/pokemon?limit=50&offset=0`)
       .subscribe((response: any) => {
         this.totalPokemons = response.count;
         response.results.map((e: any) => {

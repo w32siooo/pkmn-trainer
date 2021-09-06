@@ -1,4 +1,9 @@
-<h1>Your pokemon:</h1>
-<div class="container"><ul class="row"><li class="col-2" *ngFor="let pokemon of collectedPokemon"><img [src]="pokeImg[pokemon].url">
-</li></ul></div>
+<h1>{{ name }} pokemon:</h1>
 
+<div class="container">
+  <ul class="row">
+    <li class="col-2" *ngFor="let pokemon of collectedPokemon">
+      <img [src]="pokeImg[pokemon].url" />
+    </li>
+  </ul>
+</div>
